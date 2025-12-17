@@ -22,8 +22,9 @@ function getRandomColor() {
 }
 
 
-let drawBtn, clearBtn;
-let isDrawing = false;
+let drawBtn, clearBtn, eraseBtn;
+let mode = "none"
+
 createGrid.addEventListener("click", () => {
   const val = Number(userInput.value);
 
@@ -37,28 +38,42 @@ createGrid.addEventListener("click", () => {
   // clear old grid
   container.innerHTML = "";
   container.style.border = "2px solid black";
+
   drawBtn?.remove()
   clearBtn?.remove()
+  eraseBtn?.remove()
 
   drawBtn = createButton("drawGrid", "Draw");
   clearBtn = createButton("clearGrid", "Clear");
+  eraseBtn = createButton("eraseGrid", "Erase");
   // resize container
   container.style.width = `${GRID_SIZE * 30}px`;
   container.style.height = `${GRID_SIZE * 30}px`;
-  inputDiv.append(drawBtn, clearBtn);
+  inputDiv.append(drawBtn, clearBtn, eraseBtn);
 
-  clearBtn.addEventListener("click",()=>{
-    isDrawing = false
-      const squares = container.querySelectorAll(".square");
 
-      squares.forEach(square => {
-        square.style.backgroundColor = "";
-      });
-    })
 
-  drawBtn.addEventListener("click",()=>{
-    isDrawing = true
-  })
+  drawBtn.addEventListener("click", () => {
+    mode = "draw";
+    container.style.cursor = "crosshair";
+  });
+
+  eraseBtn.addEventListener("click", () => {
+    mode = "erase";
+    container.style.cursor = "grabbing";
+  });
+
+  clearBtn.addEventListener("click", () => {
+    mode = "none";
+    container.style.cursor = "default";
+
+    container.querySelectorAll(".square").forEach(square => {
+      square.style.backgroundColor = "";
+    });
+  });
+
+
+
   const TOTAL_SQUARES = GRID_SIZE * GRID_SIZE;
 
   for (let i = 0; i < TOTAL_SQUARES; i++) {
@@ -69,10 +84,15 @@ createGrid.addEventListener("click", () => {
     square.style.height = "30px";
     square.style.border = "1px solid #ccc"
     square.addEventListener("mouseover", () => {
-      if (!isDrawing) return;
-      square.style.backgroundColor = getRandomColor();
-      square.style.cursor = "crosshair"
-    })
+      if (mode === "draw") {
+        square.style.backgroundColor = getRandomColor();
+      }
+
+      if (mode === "erase") {
+        square.style.backgroundColor = "";
+      }
+    });
+
     container.appendChild(square);
   }
   

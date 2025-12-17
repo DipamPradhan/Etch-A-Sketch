@@ -23,7 +23,7 @@ button.addEventListener("click", () => {
 
   // clear old grid
   container.innerHTML = "";
-
+  container.style.border = "2px solid black";
   // resize container
   container.style.width = `${GRID_SIZE * 30}px`;
   container.style.height = `${GRID_SIZE * 30}px`;
@@ -36,7 +36,7 @@ button.addEventListener("click", () => {
 
     square.style.width = "30px";
     square.style.height = "30px";
-
+    square.style.border = "1px solid #ccc"
     square.addEventListener("mouseover", () => {
       square.style.backgroundColor = getRandomColor();
     });

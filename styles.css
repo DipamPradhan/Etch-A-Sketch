@@ -1,10 +1,135 @@
-#container {
-  display: flex;
-  flex-wrap: wrap;
-
-}
 
 .square {
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  margin: 0;
+  padding-top: 20px;    
+}
+
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;  
+  flex-direction: column;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#gridLabel {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#size {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #f81b1b;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#size:focus {
+  outline: none;
+  border: 2px solid #b73a1e;
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5);
+  background-color: #f17e63;
+  color: white;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+#createGrid {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #b259ed;
+  color: white;
+  border: 2px solid #9200f3;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+#createGrid:hover {
+  background-color: #9200f3;
+  box-shadow: 0 0 10px rgba(146, 0, 243, 0.5);
+}
+
+#createGrid:active {
+  transform: scale(0.95);
+}
+
+#drawGrid {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #34c759;
+  color: white;
+  border: 2px solid #26883d;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+#drawGrid:hover {
+  background-color: #26883d;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+#drawGrid:active {
+  transform: scale(0.95);
+}
+
+#clearGrid {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #42dada;
+  color: white;
+  border: 2px solid #1fb0b0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+#clearGrid:hover {
+  background-color: #1fb0b0;
+  box-shadow: 0 0 10px rgba(39, 202, 202, 0.5);
+}
+
+#clearGrid:active {
+  transform: scale(0.95);
+}
+
+#eraseGrid {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #e72121;
+  color: white;
+  border: 2px solid #9f1414;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+#eraseGrid:hover {
+  background-color: #9f1414;
+  box-shadow: 0 0 10px rgba(231, 33, 33, 0.5);
+}
+
+#eraseGrid:active {
+  transform: scale(0.95);
+}
